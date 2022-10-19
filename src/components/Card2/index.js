@@ -30,10 +30,14 @@ const Card2 = () => {
   }
   useEffect(() => {
     const id = getParam("id");
-    axios.get(`https://revise.link/${id}`).then((res) => {
-      setNftData(res.data);
-      setloadingNFT(false);
-    });
+    axios
+      .get(
+        `https://revise.link/${id || "5283c77f-6a37-41ac-b263-92375d8b6d8e"}`
+      )
+      .then((res) => {
+        setNftData(res.data);
+        setloadingNFT(false);
+      });
   }, []);
   if (loadingNFT) {
     return <>Loading..</>;

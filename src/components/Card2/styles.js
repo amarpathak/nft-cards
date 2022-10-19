@@ -3,13 +3,18 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Card = styled.div`
   width: 40%;
-  height: 90%;
-  background-color: aqua;
+  /* height: 90%; */
+  /* background-color: aqua; */
   border-radius: 1rem;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
 
   margin-left: auto;
   margin-right: auto;
@@ -30,17 +35,18 @@ export const Card = styled.div`
 
 export const Image = styled.div`
   /* position: absolute; */
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   justify-content: center;
+  /* align-items: center; */
   position: relative;
 
   img {
-    max-width: 100%;
+    /* max-width: 100%; */
     width: 100%;
     border-radius: 1rem;
-    object-fit: cover;
-    object-position: center;
+    /* object-fit: cover; */
+    /* object-position: center; */
   }
 `;
 

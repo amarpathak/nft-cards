@@ -1,25 +1,42 @@
 import { Container, Card, Image, ReviseLogo } from "./styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TopMenu from "./TopMenu";
 import Modal from "./Modal";
 import Lists from "./Modal/Lists";
 import Numbers from "./Modal/Numbers";
 import One from "./Modal/One";
+
+import axios from "axios";
 const Card2 = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContainer, setModalContainer] = useState(null);
+
+  const [nftData, setNftData] = useState(null);
+  const [loadingNFT, setloadingNFT] = useState(true);
   const getModalContainer = () => {
     switch (modalContainer) {
       case "List":
-        return <Lists />;
+        return <Lists nftData={nftData} />;
       case "Numbers":
-        return <Numbers />;
+        return <Numbers nftData={nftData} />;
       case "One":
-        return <One />;
+        return <One nftData={nftData} />;
       default:
         return <></>;
     }
   };
+
+  useEffect(() => {
+    axios
+      .get("https://revise.link/5283c77f-6a37-41ac-b263-92375d8b6d8e")
+      .then((res) => {
+        setNftData(res.data);
+        setloadingNFT(false);
+      });
+  }, []);
+  if (loadingNFT) {
+    return <></>;
+  }
   return (
     <Container>
       <Card>
@@ -27,13 +44,10 @@ const Card2 = () => {
           <TopMenu
             setShowModal={setShowModal}
             setModalContainer={setModalContainer}
+            nftData={nftData}
           />
 
-          <img
-            src={
-              "https://ether-cards.mypinata.cloud/ipfs/QmbkGSyXgthdE7bXA8RUzFxXnR13qQCsk4sBJm4KAFDhwC/31/03/310363e425.jpg"
-            }
-          />
+          <img src={nftData?.image} />
           <ReviseLogo>
             <img
               src={

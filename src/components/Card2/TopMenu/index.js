@@ -1,6 +1,6 @@
 import { Container, Item } from "./styles";
 
-const TopMenu = ({ setShowModal, setModalContainer }) => {
+const TopMenu = ({ setShowModal, setModalContainer, nftData }) => {
   const handleClick = (ContainerName) => {
     //Set Modal Open
     setShowModal(true);
@@ -10,9 +10,11 @@ const TopMenu = ({ setShowModal, setModalContainer }) => {
   };
   return (
     <Container>
-      <Item onClick={() => handleClick("One")}>Founder</Item>
-      <Item onClick={() => handleClick("Numbers")}># 225</Item>
-      <Item onClick={() => handleClick("List")}>4</Item>
+      <Item onClick={() => handleClick("One")}>{nftData?.name}</Item>
+      <Item onClick={() => handleClick("Numbers")}>#001</Item>
+      <Item onClick={() => handleClick("List")}>
+        {nftData?.attributes?.length}
+      </Item>
     </Container>
   );
 };

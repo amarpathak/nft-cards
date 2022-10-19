@@ -25,6 +25,7 @@ export const Cross = styled.div`
   margin-top: 1em;
   font-weight: 900;
   color: #fff;
+  cursor: pointer;
 
   @media only screen and (max-width: 480px) {
     font-size: 1em;

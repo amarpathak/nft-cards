@@ -8,29 +8,36 @@ const Container = styled.div`
 const Item = styled.div`
   padding: 1em;
   font-size: 2em;
-  text-align: left;
+  cursor: pointer;
+  :hover {
+    color: pink;
+  }
+
+  #trait {
+    text-transform: capitalize;
+  }
 `;
 
-const Lists = () => {
-  const listItems = [
-    {
-      title: "Forge Protector",
-    },
-    {
-      title: "Limited Trait Slot",
-    },
-    {
-      title: "Battle Ticket",
-    },
-  ];
-
+const Lists = ({ nftData }) => {
   return (
     <Container>
-      {listItems.map((i) => (
-        <Item>{i.title}</Item>
+      {nftData.attributes.map((i) => (
+        <Item>
+          <span id="trait">{i.trait_type}</span> : {i.value}
+        </Item>
       ))}
+      <div>
+        <h3>You can do more with NFTs</h3>
+        <h4>Powered by Revise</h4>
+      </div>
     </Container>
   );
 };
 
 export default Lists;
+
+// Founder : Name
+
+// Length : attributes()
+
+// Value ()

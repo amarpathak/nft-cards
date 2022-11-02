@@ -13,6 +13,7 @@ const Card2 = () => {
 
   const [nftData, setNftData] = useState(null);
   const [loadingNFT, setloadingNFT] = useState(true);
+  const [nftId, setNftId] = useState('')
   const getModalContainer = () => {
     switch (modalContainer) {
       case "List":
@@ -30,6 +31,7 @@ const Card2 = () => {
   }
   useEffect(() => {
     const id = getParam("id");
+    setNftId(id)
     axios
       .get(
         `https://revise.link/${id || "5283c77f-6a37-41ac-b263-92375d8b6d8e"}`
@@ -50,6 +52,7 @@ const Card2 = () => {
             setShowModal={setShowModal}
             setModalContainer={setModalContainer}
             nftData={nftData}
+            nftId={nftId}
           />
 
           <img src={nftData?.image} />

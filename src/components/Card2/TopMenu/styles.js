@@ -24,10 +24,14 @@ export const Item = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 2.2em;
+  height: 2.2em;
   font-family: Poppins;
   font-weight: 600;
   font-size: 1em;
+
+  svg{
+    width: 25px;
+  }
 
   @media only screen and (max-width: 480px) {
     font-size: 0.8em;
